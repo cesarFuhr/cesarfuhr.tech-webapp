@@ -6,5 +6,7 @@ export const Container = styled.div`
   justify-content: center;
   align-content: stretch;
   align-items: stretch;
-  padding: 5%;
+  border-radius: 16px;
+  margin: 5%;
+  box-shadow: 3px 6px 1px 1px #111217;
 `

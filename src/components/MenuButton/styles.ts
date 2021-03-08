@@ -5,5 +5,5 @@ export const Button = styled.div`
   background-color: #314A75;
   text-align: center;
   color: #C5C6C9;
-  padding: 3%;
+  padding: 1%;
 `
