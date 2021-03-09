@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
+export const Selector = styled.select`
+  width: 70%;
+`
+
 export const Container = styled.div`
-  display: flex;
-  flex: 1 1 auto;
-  flex-direction: row;
+  flex: 1 1 33%;
 `
