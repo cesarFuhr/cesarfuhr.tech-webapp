@@ -13,6 +13,7 @@ const Decrypt: FunctionComponent<DecryptProps> = (props: DecryptProps) => {
     <Container>
       <h3>Decrypt</h3>
       <textarea
+        placeholder="Put here the cypher to decrypt..."
         style={{ width: "70%", resize: "none" }}
         onChange={props.change}
       />

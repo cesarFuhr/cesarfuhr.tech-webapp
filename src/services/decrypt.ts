@@ -12,6 +12,7 @@ const createKey = async (key: string, cypher: string) => {
     keyID: key,
     encryptedData: cypher,
   }
+  console.log(reqBody)
   const response: AxiosResponse = await api.post(decryptResource, reqBody)  
   
   const result: decryptResponse = {
