@@ -45,14 +45,14 @@ class Criptography extends Component {
   };
 
   encryptRequestHandler = async () => {
-    const cypher = await encryptService(
+    const result = await encryptService(
       this.state.currentKey,
       this.state.encrypt.text
     );
     this.setState({
       encrypt: {
         text: this.state.encrypt.text,
-        cypher,
+        cypher: result?.cypher,
       },
     });
   };
@@ -67,13 +67,13 @@ class Criptography extends Component {
   };
 
   decryptRequestHandler = async () => {
-    const text = await decryptService(
+    const result = await decryptService(
       this.state.currentKey,
       this.state.decrypt.cypher
     );
     this.setState({
       decrypt: {
-        text,
+        text: result?.text,
         cypher: this.state.decrypt.cypher,
       },
     });

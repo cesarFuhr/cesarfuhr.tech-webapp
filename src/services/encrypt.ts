@@ -13,9 +13,9 @@ const encrypt = async (key: string, text: string) => {
       keyID: key,
       data: text,
     };
-    console.log(reqBody);
+    
     const response: AxiosResponse = await api.post(createResource, reqBody)  
-    console.log(response);
+
     const result: encryptResponse = {
       cypher: response.data.encryptedData,
     } 
