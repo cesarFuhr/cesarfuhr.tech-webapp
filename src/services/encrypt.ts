@@ -9,20 +9,20 @@ interface encryptResponse {
 
 const encrypt = async (key: string, text: string) => {
   try {
-      const reqBody = {
+    const reqBody = {
       keyID: key,
       data: text,
-    }
-    console.log(reqBody)
+    };
+    console.log(reqBody);
     const response: AxiosResponse = await api.post(createResource, reqBody)  
-    
+    console.log(response);
     const result: encryptResponse = {
       cypher: response.data.encryptedData,
     } 
-    return result
+    return result;
   } catch(error) {
-    console.log(error)   
-    return null
+    console.log(error);
+    return null;
   }
 }
 
