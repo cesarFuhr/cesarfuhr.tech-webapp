@@ -12,7 +12,7 @@ import decryptService from "../../services/decrypt";
 
 class Criptography extends Component {
   state = {
-    keys: [],
+    keys: [{ id: "Select a key", expiration: "-" }],
     encrypt: {
       text: "Text to encrypt",
       cypher: "Cypher created...",
