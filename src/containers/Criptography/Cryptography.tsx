@@ -1,27 +1,33 @@
 import { ChangeEvent, Component } from "react";
+import * as uuid from "uuid";
 import { Container } from "./styles";
 
 import Key from "../../components/Key/Key";
 import Encrypt from "../../components/Encrypt/Encrypt";
 import Decrypt from "../../components/Decrypt/Decrypt";
 
+import createKeyService from "../../services/createKey";
+
 class Criptography extends Component {
   state = {
-    keys: [{ id: "1" }, { id: "2" }, { id: "3" }],
+    keys: [],
     encrypt: {
       result: "Encrypt result...",
     },
     decrypt: {
       result: "Decrypt result...",
     },
+    session: uuid.v4(),
   };
 
   keyChangeHandler = (e: ChangeEvent) => {
     console.log(e);
   };
 
-  keyRequestHandler = () => {
-    console.log("Key requested");
+  keyRequestHandler = async () => {
+    const key = await createKeyService(this.state.session);
+    const keys = [...this.state.keys];
+    this.setState({ keys: [...keys, key] });
   };
 
   encryptChangeHandler = (e: ChangeEvent) => {
