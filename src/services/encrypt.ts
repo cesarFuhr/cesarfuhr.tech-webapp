@@ -8,17 +8,22 @@ interface encryptResponse {
 }
 
 const encrypt = async (key: string, text: string) => {
-  const reqBody = {
-    keyID: key,
-    data: text,
+  try {
+      const reqBody = {
+      keyID: key,
+      data: text,
+    }
+    console.log(reqBody)
+    const response: AxiosResponse = await api.post(createResource, reqBody)  
+    
+    const result: encryptResponse = {
+      cypher: response.data.encryptedData,
+    } 
+    return result
+  } catch(error) {
+    console.log(error)   
+    return null
   }
-  console.log(reqBody)
-  const response: AxiosResponse = await api.post(createResource, reqBody)  
-  
-  const result: encryptResponse = {
-    cypher: response.data.encryptedData,
-  } 
-  return result
 }
 
 export default encrypt;
