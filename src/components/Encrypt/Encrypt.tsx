@@ -2,13 +2,14 @@ import { ChangeEventHandler, FunctionComponent } from "react";
 
 import { Container, Result } from "./style";
 
-interface DecryptProps {
+interface EncryptProps {
   result: string;
   change: ChangeEventHandler;
   click: () => void;
 }
 
-const Decrypt: FunctionComponent<DecryptProps> = (props: DecryptProps) => {
+const Encrypt: FunctionComponent<EncryptProps> = (props: EncryptProps) => {
+  console.log(props);
   return (
     <Container>
       <h3>Encrypt</h3>
@@ -25,4 +26,4 @@ const Decrypt: FunctionComponent<DecryptProps> = (props: DecryptProps) => {
   );
 };
 
-export default Decrypt;
+export default Encrypt;
