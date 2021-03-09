@@ -60,7 +60,7 @@ class Criptography extends Component {
   decryptChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
     this.setState({
       encrypt: {
-        text: this.state.decrypt.text,
+        text: this.state.encrypt.text,
         cypher: e.target.value,
       },
     });
