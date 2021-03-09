@@ -7,6 +7,6 @@ export const Container = styled.div`
   align-content: stretch;
   align-items: stretch;
   border-radius: 16px;
-  margin: 5%;
+  margin: 3%;
   box-shadow: 3px 6px 1px 1px #111217;
 `

@@ -8,13 +8,14 @@ interface entry {
 
 interface MenuProps {
   entries: entry[];
+  click: (id: string) => () => void;
 }
 
 const Menu = (props: MenuProps) => {
   return (
     <Container>
       {props.entries.map((e) => (
-        <MenuButton text={e.name} />
+        <MenuButton key={e.id} text={e.name} click={props.click(e.id)} />
       ))}
     </Container>
   );

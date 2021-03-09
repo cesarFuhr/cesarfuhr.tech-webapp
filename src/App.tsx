@@ -16,12 +16,18 @@ class App extends Component {
     currentPage: "crypto",
   };
 
+  changePage = (id: string) => {
+    return () => {
+      this.setState({ currentPage: id });
+    };
+  };
+
   selectPage = () => pages.get(this.state.currentPage);
 
   render() {
     return (
       <Container>
-        <Menu entries={this.state.menuOptions} />
+        <Menu entries={this.state.menuOptions} click={this.changePage} />
         <Main>{this.selectPage()}</Main>
         <Footer creatorName="César Führ" />
       </Container>

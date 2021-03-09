@@ -6,4 +6,10 @@ export const Button = styled.div`
   text-align: center;
   color: #C5C6C9;
   padding: 1%;
+  cursor: pointer;
+  transition: 0.3s;
+
+  &:hover {
+    color: #89A5C6;
+  }
 `
