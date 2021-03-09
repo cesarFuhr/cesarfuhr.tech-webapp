@@ -7,21 +7,26 @@ import Encrypt from "../../components/Encrypt/Encrypt";
 import Decrypt from "../../components/Decrypt/Decrypt";
 
 import createKeyService from "../../services/createKey";
+import encryptService from "../../services/encrypt";
+import decryptService from "../../services/decrypt";
 
 class Criptography extends Component {
   state = {
     keys: [],
     encrypt: {
-      result: "Encrypt result...",
+      text: "Text to encrypt",
+      cypher: "Cypher created...",
     },
     decrypt: {
-      result: "Decrypt result...",
+      cypher: "Cypher to decrypt",
+      text: "Open text...",
     },
     session: uuid.v4(),
+    currentKey: "",
   };
 
-  keyChangeHandler = (e: ChangeEvent) => {
-    console.log(e);
+  keyChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
+    this.setState({ currentKey: e.target.value });
   };
 
   keyRequestHandler = async () => {
@@ -30,20 +35,48 @@ class Criptography extends Component {
     this.setState({ keys: [...keys, key] });
   };
 
-  encryptChangeHandler = (e: ChangeEvent) => {
-    console.log(e);
+  encryptChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    this.setState({
+      encrypt: {
+        text: e.target.value,
+        cypher: this.state.encrypt.cypher,
+      },
+    });
   };
 
-  encryptRequestHandler = () => {
-    console.log("Encrypt requested");
+  encryptRequestHandler = async () => {
+    const cypher = await encryptService(
+      this.state.currentKey,
+      this.state.encrypt.text
+    );
+    this.setState({
+      encrypt: {
+        text: this.state.encrypt.text,
+        cypher,
+      },
+    });
   };
 
-  decryptChangeHandler = (e: ChangeEvent) => {
-    console.log(e);
+  decryptChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    this.setState({
+      encrypt: {
+        text: this.state.decrypt.text,
+        cypher: e.target.value,
+      },
+    });
   };
 
-  decryptRequestHandler = () => {
-    console.log("Decrypt requested");
+  decryptRequestHandler = async () => {
+    const text = await decryptService(
+      this.state.currentKey,
+      this.state.decrypt.cypher
+    );
+    this.setState({
+      decrypt: {
+        text,
+        cypher: this.state.decrypt.cypher,
+      },
+    });
   };
 
   render() {
@@ -55,12 +88,12 @@ class Criptography extends Component {
           click={this.keyRequestHandler}
         />
         <Encrypt
-          result={this.state.encrypt.result}
+          result={this.state.encrypt.cypher}
           change={this.encryptChangeHandler}
           click={this.encryptRequestHandler}
         />
         <Decrypt
-          result={this.state.decrypt.result}
+          result={this.state.decrypt.text}
           change={this.decryptChangeHandler}
           click={this.decryptRequestHandler}
         />
