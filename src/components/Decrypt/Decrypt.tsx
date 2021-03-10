@@ -14,10 +14,10 @@ const Decrypt: FunctionComponent<DecryptProps> = (props: DecryptProps) => {
       <h3>Decrypt</h3>
       <textarea
         placeholder="Put here the cypher to decrypt..."
-        style={{ width: "70%", resize: "none" }}
+        style={{ width: "90%", resize: "none", height: "10rem" }}
         onChange={props.change}
       />
-      <button style={{ width: "70%" }} onClick={props.click}>
+      <button style={{ width: "90%" }} onClick={props.click}>
         Decrypt!!
       </button>
       <Result>{props.result}</Result>

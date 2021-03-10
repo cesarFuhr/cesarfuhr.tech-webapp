@@ -14,10 +14,10 @@ const Encrypt: FunctionComponent<EncryptProps> = (props: EncryptProps) => {
       <h3>Encrypt</h3>
       <textarea
         placeholder="Put here the text to encrypt..."
-        style={{ width: "70%", resize: "none" }}
+        style={{ width: "90%", resize: "none", height: "10rem" }}
         onChange={props.change}
       />
-      <button style={{ width: "70%" }} onClick={props.click}>
+      <button style={{ width: "90%" }} onClick={props.click}>
         Encrypt!!
       </button>
       <Result>{props.result}</Result>

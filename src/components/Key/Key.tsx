@@ -18,7 +18,7 @@ const Key: FunctionComponent<KeyProps> = (props: KeyProps) => {
       <Selector onChange={props.change}>
         {props.keys.map((k) => (
           <option key={k.id} value={k.id}>
-            Key {k.id}
+            {k.id}
           </option>
         ))}
       </Selector>

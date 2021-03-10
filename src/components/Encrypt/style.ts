@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Input = styled.div`
   width: 70%;
+  height: 10rem;
 `
 
 export const Result = styled.p`
