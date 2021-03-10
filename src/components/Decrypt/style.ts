@@ -4,11 +4,11 @@ export const Input = styled.div`
   width: 70%;
 `
 
-export const Result = styled.div`
+export const Result = styled.p`
   background-color: #89A5C6;
   font-size: 10px;
   padding: 2%;
-  margin-top: 2%;
+  margin: 2% auto 0 auto;
   overflow-wrap: break-word;
   word-wrap: break-word;
   hyphens: auto;
