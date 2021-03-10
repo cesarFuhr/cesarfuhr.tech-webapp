@@ -9,7 +9,6 @@ interface EncryptProps {
 }
 
 const Encrypt: FunctionComponent<EncryptProps> = (props: EncryptProps) => {
-  console.log(props);
   return (
     <Container>
       <h3>Encrypt</h3>
