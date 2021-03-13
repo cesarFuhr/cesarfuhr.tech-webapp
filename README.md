@@ -1,3 +1,6 @@
+![integration tests](https://github.com/cesarFuhr/gocrypto/workflows/Node.js%20CI/badge.svg)
+![deployed](https://github.com/cesarFuhr/gocrypto/workflows/CD/badge.svg)
+
 # cesarfuhr.tech-webapp
 
 cesarfuhr.tech front end app
