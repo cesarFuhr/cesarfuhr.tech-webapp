@@ -1,5 +1,5 @@
-![integration tests](https://github.com/cesarFuhr/gocrypto/workflows/Node.js%20CI/badge.svg)
-![deployed](https://github.com/cesarFuhr/gocrypto/workflows/CD/badge.svg)
+![Build](https://github.com/cesarFuhr/cesarfuhr.tech-webapp/workflows/Node.js%20CI/badge.svg)
+![deployed](https://github.com/cesarFuhr/cesarfuhr.tech-webapp/workflows/CD/badge.svg)
 
 # cesarfuhr.tech-webapp
 
