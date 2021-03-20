@@ -14,18 +14,26 @@ interface createResponse {
 }
 
 const createKey = async (scope: string) => {
-  const expiration = formatTime(new Date());
-  const reqBody = {
-    scope,
-    expiration,
+  try {
+    const expiration = formatTime(new Date());
+    const reqBody = {
+      scope,
+      expiration,
+    }
+    const response: AxiosResponse = await api.post(createResource, reqBody)  
+    
+    const result: createResponse = {
+      id: response.data.keyID,
+      expiration: response.data.expiration,
+    } 
+    return result
+  } catch (error) {
+    const message = error?.response?.data?.message
+    if (message) {
+      throw new Error(message)
+    }
+    throw error
   }
-  const response: AxiosResponse = await api.post(createResource, reqBody)  
-  
-  const result: createResponse = {
-    id: response.data.keyID,
-    expiration: response.data.expiration,
-  } 
-  return result
 }
 
 export default createKey;
