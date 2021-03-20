@@ -1,5 +1,5 @@
 ![Build](https://github.com/cesarFuhr/cesarfuhr.tech-webapp/workflows/Node.js%20CI/badge.svg)
-![deployed](https://github.com/cesarFuhr/cesarfuhr.tech-webapp/workflows/CD/badge.svg)
+![Deploy](https://github.com/cesarFuhr/cesarfuhr.tech-webapp/workflows/CD/badge.svg)
 
 # cesarfuhr.tech-webapp
 
