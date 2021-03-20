@@ -30,9 +30,13 @@ class Criptography extends Component {
   };
 
   keyRequestHandler = async () => {
-    const key = await createKeyService(this.state.session);
-    const keys = [...this.state.keys];
-    this.setState({ keys: [...keys, key] });
+    try {
+      const key = await createKeyService(this.state.session);
+      const keys = [...this.state.keys];
+      this.setState({ keys: [...keys, key] });
+    } catch (error) {
+      alert(error);
+    }
   };
 
   encryptChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
@@ -45,16 +49,20 @@ class Criptography extends Component {
   };
 
   encryptRequestHandler = async () => {
-    const result = await encryptService(
-      this.state.currentKey,
-      this.state.encrypt.text
-    );
-    this.setState({
-      encrypt: {
-        text: this.state.encrypt.text,
-        cypher: result?.cypher,
-      },
-    });
+    try {
+      const result = await encryptService(
+        this.state.currentKey,
+        this.state.encrypt.text
+      );
+      this.setState({
+        encrypt: {
+          text: this.state.encrypt.text,
+          cypher: result?.cypher,
+        },
+      });
+    } catch (error) {
+      alert(error.message);
+    }
   };
 
   decryptChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
@@ -67,16 +75,20 @@ class Criptography extends Component {
   };
 
   decryptRequestHandler = async () => {
-    const result = await decryptService(
-      this.state.currentKey,
-      this.state.decrypt.cypher
-    );
-    this.setState({
-      decrypt: {
-        text: result?.text,
-        cypher: this.state.decrypt.cypher,
-      },
-    });
+    try {
+      const result = await decryptService(
+        this.state.currentKey,
+        this.state.decrypt.cypher
+      );
+      this.setState({
+        decrypt: {
+          text: result?.text,
+          cypher: this.state.decrypt.cypher,
+        },
+      });
+    } catch (error) {
+      alert(error.message);
+    }
   };
 
   render() {

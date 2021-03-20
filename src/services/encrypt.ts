@@ -8,7 +8,6 @@ interface encryptResponse {
 }
 
 const encrypt = async (key: string, text: string) => {
-  try {
     const reqBody = {
       keyID: key,
       data: text,
@@ -20,10 +19,6 @@ const encrypt = async (key: string, text: string) => {
       cypher: response.data.encryptedData,
     } 
     return result;
-  } catch(error) {
-    console.log(error);
-    return null;
-  }
 }
 
 export default encrypt;
